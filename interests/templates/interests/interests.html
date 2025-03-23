@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverien Irakoze—Education, Medical Enthusiast</title>
+    <style>
+        /* General reset */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: rgba(44, 62, 80, 0.8); /* Dark color for the header */
+            color: #ecf0f1; /* Light text color */
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between; /* Space between logo and nav */
+            align-items: center; /* Vertically center the items */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        #logo-container {
+            /* Optional styling for the logo container */
+        }
+
+        #logo {
+            font-size: 24px;
+            color: #ecf0f1;
+            display: flex;
+            align-items: center;
+        }
+
+        #logo i {
+            margin-right: 10px; /* Space between the icon and the text */
+        }
+
+       nav ul {
+	    display: flex; /* Arrange list items horizontally */
+	    list-style: none; /* Removes default list styling */
+	    padding: 0; /* Remove padding */
+	    margin: 0; /* Remove margin */
+       }
+
+       nav ul li {
+	    margin: 0 15px; /* Space between menu items */
+	    position: relative; /* Needed for dropdown positioning */
+       }
+
+       nav ul li a {
+	    text-decoration: none;
+	    color: white; /* Set default text color to white */
+	    background: black; /* Set background color */
+	    font-size: 18px; /* Set font size */
+	    padding: 10px 15px; /* Add padding */
+	    display: block; /* Ensure the link is block-level */
+	    transition: color 0.3s ease; /* Smooth hover transition */
+	    border-radius: 10px; /* Round the corners of the links */
+       }
+
+       nav ul li a:hover {
+	    color: #3498db; /* Change color on hover */
+       }
+
+       nav ul .dropdown-menu {
+	    display: none;
+	    position: absolute;
+	    left: 0;
+	    top: 100%;
+	    background: black;
+	    min-width: 120px;
+	    list-style: none;
+	    padding: 0;
+	    border-radius: 5px; /* Round the corners of the dropdown menu */
+	    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Optional: Adds a subtle shadow for depth */
+       }
+       
+       nav ul .dropdown-menu li {
+	    border-top: 1px solid gray;
+       }
+
+       nav ul .dropdown:hover .dropdown-menu {
+	    display: block;
+       }
+
+       nav ul .dropdown-menu li a {
+	    padding: 10px;
+	    display: block;
+	    color: white;
+	    border-radius: 5px; /* Round the corners of the dropdown links */
+       }
+       
+       nav ul .dropdown-menu li a:hover {
+	       background: gray;
+       }
+
+        /* Content Section (static text, no animation) */
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <!-- Logo and Title -->
+        <div id="logo-container">
+            <h1 id="logo">
+                <i class="fas fa-user-tie"></i> Meet Reverien
+            </h1>
+        </div>
+
+        <!-- Navigation Menu -->
+        <nav>
+            <ul>
+		    <li><a href="/"><i class="fas fa-home"></i> Home</a></li>
+		    <li><a href="/resume/"><i class="fas fa-file-alt"></i> Resume</a></li>
+		    <li><a href="/interests/"><i class="fas fa-star"></i> Interests</a></li>
+		<li><a href="/contact/"><i class="fas fa-envelope"></i> Contact</a></li>
+		<li class="dropdown">
+                    <a href="#Media"><i class="fas fa-photo-video"></i> Media</a>
+                    <ul class="dropdown-menu">
+			    <li><a href="/gallery/"><i class="fas fa-images"></i> Gallery</a></li>
+			    <li><a href="/poetry/"><i class="fas fa-feather"></i> Poetry</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+</body>
+</html>
+
+
