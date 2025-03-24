@@ -9,6 +9,12 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
+            background-image: url('https://www.kcc.rw/uploads/9/8/2/4/98249186/illume_orig.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            height: 100vh;
         }
 
         /* Header Styles */
@@ -40,72 +46,63 @@
             margin-right: 10px; /* Space between the icon and the text */
         }
 
-       nav ul {
-	    display: flex; /* Arrange list items horizontally */
-	    list-style: none; /* Removes default list styling */
-	    padding: 0; /* Remove padding */
-	    margin: 0; /* Remove margin */
-       }
+        nav ul {
+            display: flex; /* Arrange list items horizontally */
+            list-style: none; /* Removes default list styling */
+            padding: 0; /* Remove padding */
+            margin: 0; /* Remove margin */
+        }
 
-       nav ul li {
-	    margin: 0 15px; /* Space between menu items */
-	    position: relative; /* Needed for dropdown positioning */
-       }
+        nav ul li {
+            margin: 0 15px; /* Space between menu items */
+            position: relative; /* Needed for dropdown positioning */
+        }
 
-       nav ul li a {
-	    text-decoration: none;
-	    color: white; /* Set default text color to white */
-	    background: black; /* Set background color */
-	    font-size: 18px; /* Set font size */
-	    padding: 10px 15px; /* Add padding */
-	    display: block; /* Ensure the link is block-level */
-	    transition: color 0.3s ease; /* Smooth hover transition */
-	    border-radius: 10px; /* Round the corners of the links */
-       }
+        nav ul li a {
+            text-decoration: none;
+            color: white; /* Set default text color to white */
+            background: black; /* Set background color */
+            font-size: 18px; /* Set font size */
+            padding: 10px 15px; /* Add padding */
+            display: block; /* Ensure the link is block-level */
+            transition: color 0.3s ease; /* Smooth hover transition */
+            border-radius: 10px; /* Round the corners of the links */
+        }
 
-       nav ul li a:hover {
-	    color: #3498db; /* Change color on hover */
-       }
+        nav ul li a:hover {
+            color: #3498db; /* Change color on hover */
+        }
 
-       nav ul .dropdown-menu {
-	    display: none;
-	    position: absolute;
-	    left: 0;
-	    top: 100%;
-	    background: black;
-	    min-width: 120px;
-	    list-style: none;
-	    padding: 0;
-	    border-radius: 5px; /* Round the corners of the dropdown menu */
-	    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Optional: Adds a subtle shadow for depth */
-       }
-       
-       nav ul .dropdown-menu li {
-	    border-top: 1px solid gray;
-       }
+        nav ul .dropdown-menu {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 100%;
+            background: black;
+            min-width: 120px;
+            list-style: none;
+            padding: 0;
+            border-radius: 5px; /* Round the corners of the dropdown menu */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Optional: Adds a subtle shadow for depth */
+        }
 
-       nav ul .dropdown:hover .dropdown-menu {
-	    display: block;
-       }
+        nav ul .dropdown-menu li {
+            border-top: 1px solid gray;
+        }
 
-       nav ul .dropdown-menu li a {
-	    padding: 10px;
-	    display: block;
-	    color: white;
-	    border-radius: 5px; /* Round the corners of the dropdown links */
-       }
-       
-       nav ul .dropdown-menu li a:hover {
-	       background: gray;
-       }
-       
-       /* Hero section with background image and overlay */
-        .hero {
-            background-image: url('https://www.kcc.rw/uploads/9/8/2/4/98249186/illume_orig.jpg'), linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)); /* Image and overlay */
-            background-size: cover;
-            background-position: center;
-            height: 100vh; /* Full height of the viewport */
-            position: relative; /* To position child elements over the background */
+        nav ul .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        nav ul .dropdown-menu li a {
+            padding: 10px;
+            display: block;
+            color: white;
+            border-radius: 5px; /* Round the corners of the dropdown links */
+        }
+
+        nav ul .dropdown-menu li a:hover {
+            background: gray;
         }
 
         /* Content Section (static text, no animation) */
@@ -118,6 +115,68 @@
             font-size: 2rem;
             text-align: center;
         }
+
+        /* Parent box holding the intro */
+        .parent-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+	    background-color: rgba(245, 245, 220, 0.5);
+            padding: 20px;
+            margin-top: 100px; /* To avoid overlap with sticky header */
+        }
+
+        /* Intro Box */
+        .intro-box {
+            width: 45%;
+            background-color: rgba(255, 255, 255, 0.7);
+            color: black;
+            border: 0px solid #333;
+            padding: 20px;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        /* Intro Picture */
+        .intro-picture {
+            width: 45%;
+            height: 300px; /* Fixed height for the image box */
+            background-color: lightgray;
+            padding: 10px;
+            border: 0px solid #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .intro-picture img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+        }
+
+	a {
+            text-decoration: none; /* Remove the underline from the link */
+        }
+
+	.clickable-box {
+	    width: 300px;
+	    height: 40px;
+	    border-radius: 20px;
+	    background-color: #3498db;
+	    text-align: center;
+	    color: green;
+	    line-height: 40px;
+	    cursor: pointer;
+	    transition: background-color 0.3s ease;
+	    margin: 100px auto;
+	    text-decoration: none;
+	 }
+	 .clickable-box:hover {
+            background-color: #2ecc71;
+	    color: blue
+	 }
 
         /* Responsive Design */
         @media (max-width: 768px) {
@@ -132,6 +191,16 @@
 
             nav ul li {
                 margin: 10px 0;
+            }
+
+            .parent-box {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .intro-box, .intro-picture {
+                width: 80%;
+                margin-bottom: 20px;
             }
         }
     </style>
@@ -150,11 +219,11 @@
         <!-- Navigation Menu -->
         <nav>
             <ul>
-		    <li><a href="/"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="/"><i class="fas fa-home"></i> Home</a></li>
                 <li><a href="resume/"><i class="fas fa-file-alt"></i> Resume</a></li>
                 <li><a href="interests/"><i class="fas fa-star"></i> Interests</a></li>
                 <li><a href="contact"><i class="fas fa-envelope"></i> Contact</a></li>
-		<li class="dropdown">
+                <li class="dropdown">
                     <a href="/"><i class="fas fa-photo-video"></i> Media</a>
                     <ul class="dropdown-menu">
                         <li><a href="gallery/"><i class="fas fa-images"></i> Gallery</a></li>
@@ -165,13 +234,20 @@
         </nav>
     </header>
 
-    <!-- Hero Section with Background and Overlay -->
-    <div class="hero">
-        <div class="content">
-            <h1>Welcome to My Website</h1>
-            <p>This is a background image with a semi-transparent overlay.</p>
+    <!-- Parent Box with Intro Box and Picture -->
+    <div class="parent-box">
+        <div class="intro-box">
+		<p>“Hello,</p>
+		<p> My name is Reverien Irakoze—you can simply call me Reverien!</p>
+                <p> As a visionary thinker and medical and education enthusiast, I am committed to living in a world of innovation, learning, and purpose. I am currently involved in boosting Rwanda’s education system in the so-called Isomo circles. However, my thoughts are just beyond that, I aim to make an even bigger impact.”
+            </p>
+        </div>
+        <div class="intro-picture">
+            <img src="https://www.bornfree.org.uk/wp-content/uploads/2023/09/Web-image-_V7A2658.jpg" alt="Reverien"/>
         </div>
     </div>
-
+    <a { text-decoration: none; } href="https://calendly.com/reverienirakoze43/30min" target="_black">
+      <div class="clickable-box">Schedule a Meeting with Me</div>
+   </a>
 </body>
 </html>
