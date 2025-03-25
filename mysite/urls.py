@@ -22,6 +22,7 @@ from interests.views import interests_view
 from contact.views import contact_view
 from gallery.views import gallery_view
 from poetry.views import poetry_view
+from django.http import HttpResponseNotFound
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,4 +32,7 @@ urlpatterns = [
     path('contact/', contact_view, name='contact'),
     path('gallery/', gallery_view, name='gallery'),
     path('poetry/', poetry_view, name='poetry'),
+]
+urlpatterns += [
+    path("favicon.ico", lambda request: HttpResponseNotFound()),
 ]
