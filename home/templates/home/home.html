@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- jQuery & Cycle2 Plugin -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.cycle2/2.1.6/jquery.cycle2.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>Reverien Irakoze—Education, Medical Enthusiast</title>
     <style>
         /* General reset */
@@ -31,9 +35,71 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
-        #logo-container {
-            /* Optional styling for the logo container */
+        .bigcase {
+            display: block;
+            background-color: #0a91df69;
+            z-index: 1;
+            width: 100%;
+            height: auto;
+            padding: 5px;
+
         }
+
+        /* Slider Container */
+        #slider {
+            position: relative;
+	    width: 100%;
+	    height: 100vh;
+	    overflow: hidden;
+	}
+
+        /* Slides */
+        .slide {
+           width: 100%;
+           height: 100vh;
+           background-size: cover;
+           background-position: center;
+        }
+
+        /* Navigation Buttons */
+        .slider-prev, .slider-next {
+	   position: absolute;
+           top: 50%;
+           transform: translateY(-50%);
+           font-size: 40px;
+           color: white;
+           cursor: pointer;
+           padding: 6px;
+	   z-index: 100;
+        }
+
+        .slider-prev { left: 10px; }
+        .slider-next { right: 10px; }
+        
+	.slide-title {
+	   font-size: 20px;
+	   font-weight: bold;
+	   line-height: 1.3;
+	   color: #fff;
+	   text-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+	   text-transform:initial;
+	   z-index: 100;
+	}
+
+    .slide-body {
+        display: flex;
+        align-items: center;
+        height: 100%;
+    }
+    .container {
+        width: 100%;
+        margin: 0 auto;
+        background-color: rgba(0, 0, 0, 0.541);
+        text-align: center;
+    }
+    .slide-caption {
+        padding-left: 50px;
+    }
 
         #logo {
             font-size: 24px;
@@ -129,25 +195,28 @@
         /* Intro Box */
         .intro-box {
             width: 45%;
-            background-color: rgba(255, 255, 255, 0.7);
+            background-color: rgba(255, 255, 255, 1);
             color: black;
             border: 0px solid #333;
             padding: 20px;
             font-weight: bold;
             text-align: left;
+            border-radius: 5px;
         }
 
         /* Intro Picture */
         .intro-picture {
-            width: 45%;
+            width: 30%;
             height: 300px; /* Fixed height for the image box */
             background-color: lightgray;
             padding: 10px;
-            border: 0px solid #333;
+            border: 10px solid #333;
             display: flex;
             justify-content: center;
             align-items: center;
             overflow: hidden;
+            border-radius: 5px;
+            border-color: #3498db;
         }
 
         .intro-picture img {
@@ -164,9 +233,9 @@
 	    width: 300px;
 	    height: 40px;
 	    border-radius: 20px;
-	    background-color: #3498db;
+	    background-color: #0a91df;
 	    text-align: center;
-	    color: green;
+	    color: rgb(248, 252, 248);
 	    line-height: 40px;
 	    cursor: pointer;
 	    transition: background-color 0.3s ease;
@@ -177,7 +246,48 @@
             background-color: #2ecc71;
 	    color: blue
 	 }
-
+     .footer {
+        background-color: black;
+        color: #ccc;
+        font-family: Arial, sans-serif;
+        padding: 5px;
+    }
+    .footer-links ul {
+        list-style: none;
+        padding: 0;
+        text-align: center;
+    }
+    .footer-links ul li{
+        margin: 8px 0;
+    }
+    .footer-links ul li a, .footer-social a{
+        color: #fff;
+        text-decoration: none;
+    }
+    .footer-links ul li a:hover, .footer-social a:hover {
+        color: #0d4fdf
+    }
+    .footer-bottom {
+        text-align: center;
+        margin-top: 30px;
+        border-top: 1px solid #444;
+        font-size: 0.9em;
+    }
+    .footer-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 100%;
+        margin: 0 auto;
+    }
+    .footer-about, .footer-links, .footer-contact {
+        flex: 1;
+        min-width: 200px;
+        margin: 20px;
+    }
+    .footer h3, .footer h4 {
+        color: #fff;
+    }
         /* Responsive Design */
         @media (max-width: 768px) {
             header {
@@ -218,8 +328,8 @@
 
         <!-- Navigation Menu -->
         <nav>
-            <ul>
-                <li><a href="/"><i class="fas fa-home"></i> Home</a></li>
+            <ul id="menu-main" class="menu-main">
+              <li><a href="/"><i class="fas fa-home"></i> Home</a></li>
                 <li><a href="resume/"><i class="fas fa-file-alt"></i> Resume</a></li>
                 <li><a href="interests/"><i class="fas fa-star"></i> Interests</a></li>
                 <li><a href="contact"><i class="fas fa-envelope"></i> Contact</a></li>
@@ -227,27 +337,112 @@
                     <a href="/"><i class="fas fa-photo-video"></i> Media</a>
                     <ul class="dropdown-menu">
                         <li><a href="gallery/"><i class="fas fa-images"></i> Gallery</a></li>
-                        <li><a href="poetry/"><i class="fas fa-feather"></i> Poetry</a></li>
-                    </ul>
-                </li>
-            </ul>
+                        <li><a href="poetry/"><i class="fas fa-feather"></i> Poetry</a></li>      </ul>
         </nav>
     </header>
 
-    <!-- Parent Box with Intro Box and Picture -->
-    <div class="parent-box">
-        <div class="intro-box">
-		<p>“Hello,</p>
-		<p> My name is Reverien Irakoze—you can simply call me Reverien!</p>
-                <p> As a visionary thinker and medical and education enthusiast, I am committed to living in a world of innovation, learning, and purpose. I am currently involved in boosting Rwanda’s education system in the so-called Isomo circles. However, my thoughts are just beyond that, I aim to make an even bigger impact.”
-            </p>
+    <div class="bigcase">
+        <div id="slider" class="slider">
+            <!-- Slide Container -->
+             <div class="slider-slides cycle-slideshow" 
+                data-cycle-slides=".slide" 
+                data-cycle-pause-on-hover="true"
+                data-cycle-timeout="3000"
+                data-cycle-speed="1000"
+                data-cycle-fx="fade"
+                data-cycle-prev=".slider-prev"
+                data-cycle-next=".slider-next">
+            
+                <!-- Slide 1 -->
+                <div class="slide" style="background-image:url('https://res-console.cloudinary.com/dzmjojlva/thumbnails/v1/image/upload/v1742931572/Y2xkLXNhbXBsZS0y/drilldown');">
+                    <div class="slide-body">
+                        <div class="container">
+                            <div class="slide-caption">
+                                <h2 class="slide-title">
+                                    Tour du Rwanda | Kigali 23 February 2025                       </h2>                    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Slide 2 -->
+                <div class="slide" style="background-image:url('https://res.cloudinary.com/dzmjojlva/image/upload/v1743238833/53953755169_4c69a6e0d2_o-1_killfd.jpg');">
+                    <div class="slide-body">
+                        <div class="container">
+                            <div class="slide-caption">
+                                <h2 class="slide-title">
+                                    UGHE Prospective Medical Student | Class 2031                       </h2>                    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="slide" style="background-image:url('https://res-console.cloudinary.com/dzmjojlva/thumbnails/v1/image/upload/v1742931572/Y2xkLXNhbXBsZS0z/drilldown');">
+                    <div class="slide-body">
+                        <div class="container">
+                            <div class="slide-caption">
+                                <h2 class="slide-title">
+                                    Tour du Rwanda | Kigali 23 February 2025                       </h2>                    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation Controls -->
+            <div class="slider-prev">❮</div>
+            <div class="slider-next">❯</div>
         </div>
-        <div class="intro-picture">
-            <img src="https://www.bornfree.org.uk/wp-content/uploads/2023/09/Web-image-_V7A2658.jpg" alt="Reverien"/>
+
+        <!-- Parent Box with Intro Box and Picture -->
+        <div class="parent-box">
+            <div class="intro-picture">
+                <img src="https://res.cloudinary.com/dzmjojlva/image/upload/v1742981614/profile_fyiqxz.jpg" alt="Reverien"/>
+            </div>
+            <div class="intro-box">
+		    <p>“Hello,</p>
+		    <p> My name is Reverien Irakoze—I do not bother being simply called Reverien!</p>
+                    <p> As a visionary thinker and medical and education enthusiast, I am committed to driving a change in a world of innovation, learning, and purpose. I am currently involved in boosting Rwanda’s education system in the Isomo Circles Program. However, my achievements are always yet to be achieved, my sense of urgency prepares me to make an even bigger impact.”
+                </p>
+            </div>
         </div>
     </div>
-    <a { text-decoration: none; } href="https://calendly.com/reverienirakoze43/30min" target="_black">
-      <div class="clickable-box">Schedule a Meeting with Me</div>
+    <a { text-decoration: none; } href="https://calendly.com/reverienirakoze43/30min" target="_blank">
+      <div class="clickable-box">Meet with Me</div>
    </a>
+   <footer class="footer">
+    <div class="footer-container">
+        <div class="footer-about">
+            <h3 style="text-align: center;">MyWebsite</h3>
+            <p style="text-align: center;">Bringing you the best solutions for your daily needs.</p>
+        </div>
+        <div class="footer-links">
+            <h4 style="text-align: center;">Quick Links</h4>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/resume/">Resume</a></li>
+                <li><a href="/interests/">Interests</a></li>
+                <li><a href="/contact/">Contact</a></li>
+                <li><a href="/gallery/">Gallery</a></li>
+                <li><a href="/poetry/">Poetry</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-contact">
+            <h4 style="text-align: center;">Contact Us</h4>
+            <p style="text-align: center;">Email: reverienirakoze43@gmail.com</p>
+            <p style="text-align: center;">Phone: +250 795 225 994</p>
+            <div class="footer-social" style="text-align: center;">
+                <a href="#" target="_blank"><i class="fab fa-facebook"></i></a> |  
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a> |  
+                <a href="https://www.instagram.com/r.e.v.e.r.i.e.n_done" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 ReverienIrakoze. All rights reserved.</p>
+    </div>
+</footer>
 </body>
 </html>

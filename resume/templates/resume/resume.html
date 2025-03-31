@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>Reverien Irakoze—Education, Medical Enthusiast</title>
     <style>
         /* General reset */
         body {
             margin: 0;
             font-family: Arial, sans-serif;
+            background-color: rgb(7, 109, 168);
         }
 
         /* Header Styles */
@@ -23,10 +25,6 @@
             justify-content: space-between; /* Space between logo and nav */
             align-items: center; /* Vertically center the items */
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        #logo-container {
-            /* Optional styling for the logo container */
         }
 
         #logo {
@@ -98,6 +96,20 @@
        nav ul .dropdown-menu li a:hover {
 	       background: gray;
        }
+       .resume-image {
+           padding: 30px;
+           border-radius: 15px;
+           width: 70%;
+           overflow: hidden;
+       }
+
+       .resume-image img {
+           width: 100%;
+           border: 10px solid rgb(9, 59, 92);
+           height: auto;
+           display: block;
+           border-radius: 15px;
+       }
 
         /* Content Section (static text, no animation) */
         .content {
@@ -108,6 +120,48 @@
             color: white;
             font-size: 2rem;
             text-align: center;
+        }
+        .footer {
+            background-color: #222;
+            color: #ccc;
+            padding: 5px;
+            font-family: Arial, sans-serif;
+        }
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+        .footer-links ul li{
+            margin: 8px 0;
+        }
+        .footer-links ul li a, .footer-social a{
+            color: #fff;
+            text-decoration: none;
+        }
+        .footer-links ul li a:hover, .footer-social a:hover {
+            color: #0d4fdf
+        }
+        .footer-bottom {
+            text-align: center;
+            margin-top: 30px;
+            border-top: 1px solid #444;
+            font-size: 0.9em;
+        }
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            width: 100%;
+            margin: 0 auto;
+        }
+       .footer-about, .footer-links, .footer-contact {
+        flex: 1;
+        min-width: 200px;
+        margin: 20px;
+        }
+        .footer h3, .footer h4 {
+            color: #fff;
         }
 
         /* Responsive Design */
@@ -155,6 +209,67 @@
             </ul>
         </nav>
     </header>
+    <div class="resume-image" style="text-align:center;">
+        <img src="https://res.cloudinary.com/dzmjojlva/image/upload/v1742970088/Blue_Simple_Professional_CV_Resume_sifiuh.jpg" alt="My Resume" style="border-radius:15px; width:80%;">
+    
+        <br><br>
+    
+        <a href="https://res.cloudinary.com/dzmjojlva/image/upload/v1742970088/Blue_Simple_Professional_CV_Resume_sifiuh.jpg" download target="_blank">
+            <button class="download-btn">Download Resume Image</button>
+        </a>
+    </div>
+    
+    <style>
+        .download-btn {
+            padding: 10px 15px;
+            border: none;
+            background: #3498db;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease; /* Smooth transition */
+            font-size: 16px;
+        }
+    
+        .download-btn:hover {
+            background: #2980b9; /* Darker blue on hover */
+            transform: scale(1.05); /* Slightly grows */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a soft shadow */
+        }
+    </style>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-about">
+                <h3 style="text-align: center;">MyWebsite</h3>
+                <p style="text-align: center;">Bringing you the best solutions for your daily needs.</p>
+            </div>
+            <div class="footer-links">
+                <h4 style="text-align: center;">Quick Links</h4>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/resume/">Resume</a></li>
+                    <li><a href="/interests/">Interests</a></li>
+                    <li><a href="/contact/">Contact</a></li>
+                    <li><a href="/gallery/">Gallery</a></li>
+                    <li><a href="/poetry/">Poetry</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-contact">
+                <h4 style="text-align: center;">Contact Us</h4>
+                <p style="text-align: center;">Email: reverienirakoze43@gmail.com</p>
+                <p style="text-align: center;">Phone: +250 795 225 994</p>
+                <div class="footer-social" style="text-align: center;">
+                    <a href="#" target="_blank"><i class="fab fa-facebook"></i></a> |  
+                    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a> |  
+                    <a href="https://www.instagram.com/r.e.v.e.r.i.e.n_done" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 ReverienIrakoze. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
 
